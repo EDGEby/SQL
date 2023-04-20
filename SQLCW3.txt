@@ -1,0 +1,104 @@
+https://www.sql-ex.ru/learn_exercises.php#answer_ref
+
+1
+
+SELECT model, speed, hd    
+FROM PC
+WHERE price<500
+
+
+-------------------
+2
+
+SELECT *
+FROM Printer
+WHERE Color='y'
+
+
+-------------------
+3
+
+SELECT model, speed, hd
+FROM PC
+WHERE (cd='12x' OR cd='24x') AND price<600
+
+
+-------------------
+4
+
+SELECT maker,speed
+FROM Laptop, Product
+WHERE Product.type='Laptop' AND Laptop.hd>=10
+
+
+-------------------
+5
+
+SELECT Product.model,price
+FROM Laptop, Product
+WHERE Product.maker='B'
+
+
+-------------------
+6
+
+SELECT Product.type, PC.model, price, maker
+FROM PC INNER JOIN   
+     Product ON PC.model = Product.model
+WHERE Product.maker='B'
+UNION
+SELECT Product.type, Laptop.model, price,maker 
+FROM Laptop INNER JOIN   
+     Product ON Laptop.model = Product.model
+WHERE Product.maker='B'
+UNION
+SELECT Product.type, Printer.model, price,maker
+FROM Printer INNER JOIN   
+     Product ON Printer.model = Product.model
+WHERE Product.maker='B'
+
+
+-------------------
+7
+
+SELECT DISTINCT maker
+FROM Product 
+WHERE type = 'PC' AND
+		maker NOT IN (SELECT maker
+					  FROM Product
+					  WHERE type = 'Laptop'
+						)
+
+
+
+-------------------
+
+
+
+
+
+
+-------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------
+
+
+
