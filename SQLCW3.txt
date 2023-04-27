@@ -72,13 +72,37 @@ WHERE type = 'PC' AND
 
 
 -------------------
+14 
+
+SELECT Ships.class, Ships.name, Classes.country
+FROM Classes JOIN Ships ON Classes.class = Ships.class
+WHERE Classes.numGuns >=10
+
+
+----------------------------------------
+9
+
+SELECT DISTINCT Product.maker
+FROM Product JOIN PC ON Product.model = PC.model
+WHERE PC.speed>=450
+
+
+---------------------------------------
+18
+
+SELECT DISTINCT Product.maker, Printer.price
+FROM Printer JOIN Product ON Product.model=Printer.model
+WHERE  Printer.color = 'y' AND
+Printer.price = (SELECT MIN(price) FROM Printer WHERE color='y')
+
+
+---------------------------------------
 
 
 
 
 
 
--------------------
 
 
 
@@ -98,7 +122,15 @@ WHERE type = 'PC' AND
 
 
 
--------------------
+
+
+
+
+
+
+
+
+
 
 
 
