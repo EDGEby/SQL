@@ -97,31 +97,38 @@ Printer.price = (SELECT MIN(price) FROM Printer WHERE color='y')
 
 
 ---------------------------------------
+19
+
+SELECT maker, AVG(screen)
+FROM Product JOIN Laptop
+ON Product.model = Laptop.model
+GROUP BY maker
 
 
+---------------------------------------
+21
+
+SELECT maker, MAX(price)
+FROM Product JOIN PC
+ON Product.model = PC.model
+GROUP BY maker
 
 
+---------------------------------------
+23
+
+SELECT maker
+FROM Product JOIN PC
+ON Product.model = PC.model
+WHERE speed>=750
+    INTERSECT
+SELECT maker
+FROM Product JOIN Laptop
+ON Product.model = Laptop.model
+WHERE speed>=750
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---------------------------------------
 
 
 
